@@ -15,4 +15,7 @@ angular.module('app', [])
 	.factory('getData', getData)
 	.run(function(getData) {
 		var promise = getData()
+			.then(function(string) {
+				console.log(string)
+			})
 	})
