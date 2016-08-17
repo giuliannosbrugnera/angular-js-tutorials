@@ -3,15 +3,15 @@ function getData($timeout, $q) {
         var defer = $q.defer()
 
         // simulated async function
-        $timeout(function() {
-            if (Math.round(Math.random())) {
-                defer.resolve('data received!')
-            } else {
-                defer.reject('oh no an error! try again')
-            }
-        }, 2000)
-
-        return defer.promise
+        return $q(function(resolve, reject) {
+            $timeout(function() {
+                if (Math.round(Math.random())) {
+                    resolve('data received!')
+                } else {
+                    reject('oh no an error! try again')
+                }
+            }, 2000)
+        })
     }
 }
 
