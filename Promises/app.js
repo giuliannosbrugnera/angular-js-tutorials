@@ -15,12 +15,11 @@ angular.module('app', [])
     .factory('getData', getData)
     .run(function(getData) {
         var promise = getData()
-            .then(function(string) {
-                console.log(string)
-            }, function(error) {
-                console.error(error)
+            .then(function(num) {
+                console.log(num)
+                return num * 2
             })
-            .finally(function() {
-                console.log('Finished at:', new Date())
+            .then(function(num) {
+                console.log(num) // = random number * 2
             })
     })
