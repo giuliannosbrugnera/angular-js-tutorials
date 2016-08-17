@@ -5,5 +5,12 @@ app.factory('messages', function() {
 
 	messages.list = [];
 
+	messages.add = function(message) {
+		messages.list.push({
+			id: messages.list.length,
+			text: message
+		});
+	};
+
 	return messages;
 });
