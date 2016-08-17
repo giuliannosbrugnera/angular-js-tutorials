@@ -5,11 +5,7 @@ function getData($timeout, $q) {
         // simulated async function
         return $q(function(resolve, reject) {
             $timeout(function() {
-                if (Math.round(Math.random())) {
-                    resolve('data received!')
-                } else {
-                    reject('oh no an error! try again')
-                }
+                resolve(Math.floor(Math.random() * 10))
             }, 2000)
         })
     }
