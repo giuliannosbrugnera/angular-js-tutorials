@@ -3,7 +3,9 @@ function getData($timeout, $q) {
 		var defer = $q.defer()
 
 		// simulated async function
-		$timeout(function() {}, 2000)
+		$timeout(function() {
+			defer.resolve('data received!')
+		}, 2000)
 
 		return defer.promise
 	}
