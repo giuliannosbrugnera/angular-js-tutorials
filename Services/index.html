@@ -8,6 +8,9 @@
     <body>
         <div ng-app="app">
             <h1>Services</h1>
+            <div ng-controller="ListCtrl as list">
+                <p ng-repeat="message in list.messages">{{ message.id }}: {{ message.text }}</p>
+            </div>
         </div>
     </body>
 </html>
