@@ -24,3 +24,13 @@ app.controller('ListCtrl', function(messages) {
 
 	self.messages = messages.list;
 });
+
+// Controller named 'PostCtrl' that also injects our messages service.
+// This controller will also contain an 'addMessage' function that uses the add function we made in our service.
+app.controller('PostCtrl', function(messages) {
+	var self = this;
+
+	self.addMessage = function(message) {
+		messages.add(message);
+	};
+});
