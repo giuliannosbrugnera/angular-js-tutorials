@@ -4,6 +4,6 @@ var app = angular.module('app', []);
 
 // 'MainCtrl' is the controller name.
 // Second parameter is the function that represents our controller.
-app.controller('MainCtrl', function (){
-
+app.controller('MainCtrl', function ($scope){
+	$scope.message = 'hello';
 });
