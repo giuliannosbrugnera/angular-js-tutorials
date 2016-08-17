@@ -1,7 +1,7 @@
 var app = angular.module('app', []);
 
 
-// Service called 'messages'
+// Service called 'messages'.
 app.factory('messages', function() {
     var messages = {};
 
@@ -17,7 +17,7 @@ app.factory('messages', function() {
     return messages;
 });
 
-// Controller called 'ListCtrl' that injects our messages 
+// Controller called 'ListCtrl' that injects our messages.
 // service, and exposes the list from our service to our view.
 app.controller('ListCtrl', function(messages) {
     var self = this;
@@ -30,7 +30,12 @@ app.controller('ListCtrl', function(messages) {
 app.controller('PostCtrl', function(messages) {
     var self = this;
 
+    // Get a default message.
+    self.newMessage = 'Hello World!';
+
     self.addMessage = function(message) {
         messages.add(message);
+        // Clear out the input field after it's been submitted.
+        self.newMessage = '';
     };
 });
