@@ -1,5 +1,7 @@
 var app = angular.module('app', []);
 
+
+// Service called 'messages'
 app.factory('messages', function() {
 	var messages = {};
 
@@ -13,4 +15,12 @@ app.factory('messages', function() {
 	};
 
 	return messages;
+});
+
+// Controller called 'ListCtrl' that injects our messages 
+// service, and exposes the list from our service to our view.
+app.controller('ListCtrl', function(messages) {
+	var self = this;
+
+	self.messages = messages.list;
 });
