@@ -24,4 +24,7 @@ angular.module('app', [])
             }, function(error) {
                 console.error(error)
             })
+            .finally(function() {
+                console.log('Finished at:', new Date())
+            })
     })
