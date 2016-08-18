@@ -11,7 +11,7 @@ function Welcome() {
 function Howdy() {
     // Return an object.
     return {
-        // Property that restricts this directive to `Attribute`.
+        // Property that restricts this directive to `Attribute`. It is the default restrict property.
         restrict: "A",
         // Linking function
         link: function() {
@@ -42,8 +42,18 @@ function Comment() {
     }
 }
 
+function Goodbye() {
+    return {
+        restrict: "A",
+        link: function() {
+            alert("See ya later!");
+        }
+    }
+}
+
 var greetings = angular.module('greetings', []);
 greetings.directive("welcome", Welcome);
 greetings.directive("howdy", Howdy);
 greetings.directive("hello", Hello);
 greetings.directive("comment", Comment);
+greetings.directive("goodbye", Goodbye);
