@@ -13,9 +13,7 @@
             scope: {},
             // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
             link: function(scope, elem, attr, tabsetCtrl) {
-                link: function(scope, elem, attr, tabsetCtrl) {
-                    tabsetCtrl.addTab(scope)
-                }
+                tabsetCtrl.addTab(scope);
             }
         }
     }
@@ -38,7 +36,7 @@
                 self.tabs = [];
                 // Function which a tab can use to register itself.
                 self.addTab = function addTab(tab) {
-                    self.tabs.push(tab)
+                    self.tabs.push(tab);
                 }
             }
         }
