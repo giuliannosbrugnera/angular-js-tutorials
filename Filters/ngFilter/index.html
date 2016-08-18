@@ -6,9 +6,19 @@
 		<script src="app.js"></script>
 	</head>
 	<body ng-app="app" ng-controller="TestCtrl as test">
-		<input type="text" ng-model="search" />
-		<p ng-repeat="person in test.people | filter: search">
-			{{ person.name }}
+		<p>Search by both name and hometown: <input type="text" ng-model="searchBoth" /></p>
+		<p ng-repeat="person in test.people | filter: searchBoth">
+			{{ person | json }}
+		</p>
+
+		<p>Search by name: <input type="text" ng-model="searchName.name" /></p>
+		<p ng-repeat="person in test.people | filter: searchName">
+			{{ person | json }}
+		</p>
+
+		<p>Search by hometown: <input type="text" ng-model="searchBorn.born" /></p>
+		<p ng-repeat="person in test.people | filter: searchBorn">
+			{{ person | json }}
 		</p>
 	</body>
 </html>
