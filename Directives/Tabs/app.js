@@ -12,7 +12,11 @@
             require: '^tabset',
             scope: {},
             // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
-            link: function(scope, elem, attr, tabsetCtrl) {}
+            link: function(scope, elem, attr, tabsetCtrl) {
+                link: function(scope, elem, attr, tabsetCtrl) {
+                    tabsetCtrl.addTab(scope)
+                }
+            }
         }
     }
 
@@ -26,12 +30,16 @@
             templateUrl: 'tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
-            //  By using a controller, we can require that the "tab" directive be nested inside the "tabset".
+            // By using a controller, we can require that the "tab" directive be nested inside the "tabset".
             // Doing this will inject the "tabset" controller instance into each of the "tab" link functions,
             // allowing us to operate on the controller object from within the link functions of the "tabs".
             controller: function() {
-                var self = this
-                self.tabs = []
+                var self = this;
+                self.tabs = [];
+                // Function which a tab can use to register itself.
+                self.addTab = function addTab(tab) {
+                    self.tabs.push(tab)
+                }
             }
         }
     }
