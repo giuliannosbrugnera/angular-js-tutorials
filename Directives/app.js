@@ -20,7 +20,19 @@ function Howdy() {
     }
 }
 
+function Hello() {
+    // Return an object.
+    return {
+        // Property that restricts this directive to `Class`.
+        restrict: "C",
+        link: function() {
+            alert("Hello!");
+        }
+    }
+}
+
 
 var greetings = angular.module('greetings', []);
 greetings.directive("welcome", Welcome);
 greetings.directive("howdy", Howdy);
+greetings.directive("hello", Hello);
