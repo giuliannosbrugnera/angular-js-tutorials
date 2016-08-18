@@ -25,5 +25,15 @@ function welcome() {
   }
 }
 
+function hello() {
+  return {
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHowdy();
+    }
+  }
+}
+
 var greetings = angular.module('greetings', [])
 greetings.directive("welcome", welcome);
+greetings.directive("hello", hello);
