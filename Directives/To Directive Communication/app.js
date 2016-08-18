@@ -1,6 +1,7 @@
 function welcome() {
   return {
     restrict: "E",
+    // Provide the welcome directive with an isolate scope for each instance.
     // This way, the scope for each directive is local only to that directive instance.
     scope: {},
     controller: function($scope) {
