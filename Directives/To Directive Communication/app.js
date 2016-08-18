@@ -36,4 +36,5 @@ function hello() {
 
 var greetings = angular.module('greetings', [])
 greetings.directive("welcome", welcome);
+// Set up another directive within the app to interact with the welcome directive.
 greetings.directive("hello", hello);
