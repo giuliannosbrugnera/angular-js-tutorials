@@ -28,8 +28,27 @@ function welcome() {
 function hello() {
   return {
     require: "welcome",
+    // The last parameter, which is the required controller, does not have a required name convention.
     link: function(scope, element, attrs, welcomeCtrl) {
       welcomeCtrl.sayHowdy();
+    }
+  }
+}
+
+function howdy() {
+  return {
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHowdy();
+    }
+  }
+}
+
+function hi() {
+  return {
+    require: "welcome",
+    link: function(scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHi();
     }
   }
 }
@@ -38,3 +57,5 @@ var greetings = angular.module('greetings', [])
 greetings.directive("welcome", welcome);
 // Set up another directive within the app to interact with the welcome directive.
 greetings.directive("hello", hello);
+greetings.directive("howdy", howdy);
+greetings.directive("hi", hi);
