@@ -1,19 +1,17 @@
 function entering() {
-    return function(scope, element) {
+    return function(scope, element, attrs) {
         // Bind “mouseenter”.
         element.bind("mouseenter", function() {
-            // Add the CSS class "activeClass".
-            element.addClass("activeClass");
+            element.addClass(attrs.entering);
         })
     }
 }
 
 function leaving() {
-    return function(scope, element) {
+    return function(scope, element, attrs) {
         // Bind “mouseleave”.
         element.bind("mouseleave", function() {
-            // Remove the CSS class "activeClass".
-            element.removeClass("activeClass");
+            element.removeClass(attrs.entering);
         })
     }
 }
