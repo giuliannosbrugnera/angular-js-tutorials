@@ -31,8 +31,19 @@ function Hello() {
     }
 }
 
+function Comment() {
+    // Return an object.
+    return {
+        // Property that restricts this directive to `Comment`.
+        restrict: "M",
+        link: function() {
+            alert("Inside a comment! How'd know!");
+        }
+    }
+}
 
 var greetings = angular.module('greetings', []);
 greetings.directive("welcome", Welcome);
 greetings.directive("howdy", Howdy);
 greetings.directive("hello", Hello);
+greetings.directive("comment", Comment);
