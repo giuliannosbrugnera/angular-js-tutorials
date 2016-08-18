@@ -1,6 +1,8 @@
 function welcome() {
   return {
     restrict: "E",
+    // This way, the scope for each directive is local only to that directive instance.
+    scope: {},
     controller: function($scope) {
       $scope.words = [];
 
