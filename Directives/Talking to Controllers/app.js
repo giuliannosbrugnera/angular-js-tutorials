@@ -5,6 +5,9 @@ function FunCtrl() {
         console.log("Fun times have been started!");
     }
 
+    self.end = function() {
+        console.log("Fun time is over.");
+    }
 }
 
 
@@ -13,7 +16,7 @@ angular.module('coolApp', [])
     .directive("entering", function() {
         return function(scope, element, attrs) {
             element.bind("mouseenter", function() {
-                scope.fun.start();
+                scope.$apply(attrs.entering);
             })
         }
     });
