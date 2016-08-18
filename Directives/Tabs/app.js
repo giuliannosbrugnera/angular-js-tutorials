@@ -10,7 +10,12 @@
             // The '^' character instructs the directive to move up the scope hierarchy one level and look for the controller on "tabset".
             // If the controller can't be found, angular will throw an error.
             require: '^tabset',
-            scope: {},
+            // By specifying a property on the scope object of the DDO, the scope object passed to our link function will now have
+            // a "heading" property automatically attached to it whose value is equal to the string defined in index.html.
+            // "@" means this scope property should be a string
+            scope: {
+                heading: '@'
+            },
             // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
             link: function(scope, elem, attr, tabsetCtrl) {
                 // Any property bound to scope in the "tab" directive will also be accessible by the "tabset" controller.
