@@ -10,6 +10,7 @@
         <h2>
         {{ test.myString | capitalize }}
         </h2>
-        <pre ng-repeat="friend in test.friends | startsWithA">{{ friend | json }}</pre>
+        <input type="text" ng-model="letter">
+        <pre ng-repeat="friend in test.friends | startsWithA:letter">{{ friend | json }}</pre>
     </body>
 </html>

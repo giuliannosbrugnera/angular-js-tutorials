@@ -28,14 +28,15 @@ function CapitalizeFilter() {
 function StartsWithA() {
     // function to invoke by Angular each time
     // Angular passes in the `items` which is our Array.
-    return function(items) {
+    return function(items, letter) {
         // Create a new Array
         var filtered = [];
+        var letterMatch = new RegExp(letter, 'i');
         // loop through existing Array
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
             // check if the individual Array element begins with `a` or not.
-            if (/a/i.test(item.name.substring(0, 1))) {
+            if (letterMatch.test(item.name.substring(0, 1))) {
                 // push it into the Array if it does!
                 filtered.push(item);
             }
