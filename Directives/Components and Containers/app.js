@@ -27,3 +27,4 @@ function panel() {
 
 var app = angular.module("app", []);
 app.directive("clock", clock);
+app.directive("panel", panel);
