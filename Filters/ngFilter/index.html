@@ -41,5 +41,11 @@
             </pre>
         </div>
         <hr>
+        <div>
+            <p>Chaining filters</p>
+            <pre ng-repeat="person in test.people | filter:search | orderBy:'born'  | limitTo: 2">
+                {{ person | json }}
+            </pre>
+        </div>
     </body>
 </html>
