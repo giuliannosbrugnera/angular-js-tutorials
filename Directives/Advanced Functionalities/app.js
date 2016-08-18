@@ -2,8 +2,8 @@ function entering() {
     return function(scope, element) {
         // Bind “mouseenter”.
         element.bind("mouseenter", function() {
-            // Log “Mouse has entered the div” to the console.
-            console.log("Mouse has entered the div");
+            // Add the CSS class "activeClass".
+            element.addClass("activeClass");
         })
     }
 }
@@ -12,8 +12,8 @@ function leaving() {
     return function(scope, element) {
         // Bind “mouseleave”.
         element.bind("mouseleave", function() {
-            // Log “Mouse has left the div” to the console.
-            console.log("Mouse has left the div");
+            // Remove the CSS class "activeClass".
+            element.removeClass("activeClass");
         })
     }
 }
