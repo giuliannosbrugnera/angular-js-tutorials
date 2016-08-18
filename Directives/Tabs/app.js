@@ -13,6 +13,7 @@
             scope: {},
             // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
             link: function(scope, elem, attr, tabsetCtrl) {
+                // Any property bound to scope in the "tab" directive will also be accessible by the "tabset" controller.
                 tabsetCtrl.addTab(scope);
             }
         }
