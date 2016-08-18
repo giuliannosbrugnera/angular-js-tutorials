@@ -20,6 +20,14 @@
             link: function(scope, elem, attr, tabsetCtrl) {
                 // The active property will determine whether or not an individual tab is shown so all tabs should begin life as inactive.
                 scope.active = false;
+
+                scope.disabled = false;
+                if (attr.disable) {
+                    attr.$observe('disable', function(value) {
+                        scope.disabled = (value !== 'false');
+                    })
+                }
+
                 // Any property bound to scope in the "tab" directive will also be accessible by the "tabset" controller.
                 tabsetCtrl.addTab(scope);
             }
@@ -48,8 +56,13 @@
                     if (self.tabs.length === 1) {
                         tab.active = true;
                     }
-                }
-                self.select = function(selectedTab) {
+                };
+                // This method will deactivate all the "tabs" that weren't selected before finally activating the selected "tab".
+                self.select = function select(selectedTab) {
+                    if (selectedTab.disabled) {
+                        return;
+                    }
+
                     angular.forEach(self.tabs, function(tab) {
                         if (tab.active && tab !== selectedTab) {
                             tab.active = false;
@@ -57,7 +70,7 @@
                     })
 
                     selectedTab.active = true;
-                }
+                };
             }
         }
     }
