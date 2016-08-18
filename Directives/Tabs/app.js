@@ -7,12 +7,16 @@
             restrict: 'E',
             transclude: true,
             template: '<h2>Hello world!</h2> <div role="tabpanel" ng-transclude></div>',
+            // The '^' character instructs the directive to move up the scope hierarchy one level and look for the controller on "tabset".
+            // If the controller can't be found, angular will throw an error.
+            require: '^tabset',
             scope: {},
-            link: function(scope, elem, attr) {}
+            // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
+            link: function(scope, elem, attr, tabsetCtrl) {}
         }
     }
 
-    // This directive will wrap multiple tabs and provide the logic needed to select which tab is shown.
+    // This directive will wrap multiple "tabs" and provide the logic needed to select which "tab" is shown.
     function tabset() {
         return {
             restrict: 'E',
@@ -22,6 +26,9 @@
             templateUrl: 'tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
+            //  By using a controller, we can require that the "tab" directive be nested inside the "tabset".
+            // Doing this will inject the "tabset" controller instance into each of the "tab" link functions,
+            // allowing us to operate on the controller object from within the link functions of the "tabs".
             controller: function() {
                 var self = this
                 self.tabs = []
