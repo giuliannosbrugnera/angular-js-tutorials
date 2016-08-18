@@ -8,4 +8,14 @@ angular.module('greetings', [])
             // Property for specifying the HTML for our directive .
             template: "<div>Howdy there! You look splendid.</div>"
         }
+    })
+    .directive("howdy", function() {
+        return {
+            // Property that restricts this directive to `Attribute`.
+            restrict: "A",
+            // Linking function
+            link: function() {
+                alert("Howdy!");
+            }
+        }
     });
