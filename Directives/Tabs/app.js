@@ -6,7 +6,7 @@
         return {
             restrict: 'E',
             transclude: true,
-            template: '<h2>Hello world!</h2> <div role="tabpanel" ng-transclude></div>',
+            template: '<div role="tabpanel" ng-show="active" ng-transclude></div>',
             // The '^' character instructs the directive to move up the scope hierarchy one level and look for the controller on "tabset".
             // If the controller can't be found, angular will throw an error.
             require: '^tabset',
@@ -18,6 +18,8 @@
             },
             // "tabsetCtrl" is the "tabset" controller, which we can now manipulate.
             link: function(scope, elem, attr, tabsetCtrl) {
+                // The active property will determine whether or not an individual tab is shown so all tabs should begin life as inactive.
+                scope.active = false;
                 // Any property bound to scope in the "tab" directive will also be accessible by the "tabset" controller.
                 tabsetCtrl.addTab(scope);
             }
@@ -43,6 +45,9 @@
                 // Function which a tab can use to register itself.
                 self.addTab = function addTab(tab) {
                     self.tabs.push(tab);
+                    if (self.tabs.length === 1) {
+                        tab.active = true;
+                    }
                 }
             }
         }
