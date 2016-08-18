@@ -18,6 +18,7 @@
             restrict: 'E',
             transclude: true,
             scope: {},
+            // Rather than defining a template string, we're using templateUrl to specify an external template.
             templateUrl: 'tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
