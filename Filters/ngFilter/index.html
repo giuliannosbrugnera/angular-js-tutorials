@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Filters - ngFilter</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-		<script src="app.js"></script>
-	</head>
-	<body ng-app="app" ng-controller="TestCtrl as test">
-		<p>Search by both name and hometown: <input type="text" ng-model="searchBoth" /></p>
-		<p ng-repeat="person in test.people | filter: searchBoth">
-			{{ person | json }}
-		</p>
-
-		<p>Search by name: <input type="text" ng-model="searchName.name" /></p>
-		<p ng-repeat="person in test.people | filter: searchName">
-			{{ person | json }}
-		</p>
-
-		<p>Search by hometown: <input type="text" ng-model="searchBorn.born" /></p>
-		<p ng-repeat="person in test.people | filter: searchBorn">
-			{{ person | json }}
-		</p>
-	</body>
+    <head>
+        <title>Filters - ngFilter</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-app="app" ng-controller="TestCtrl as test">
+        <div>
+            <p>Search by both name and hometown: <input type="text" ng-model="searchBoth" /></p>
+            <pre ng-repeat="person in test.people | filter: searchBoth">
+                {{ person | json }}
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <p>Search by name: <input type="text" ng-model="searchName.name" /></p>
+            <pre ng-repeat="person in test.people | filter: searchName">
+                {{ person | json }}
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <p>Search by hometown: <input type="text" ng-model="searchBorn.born" /></p>
+            <pre ng-repeat="person in test.people | filter: searchBorn">
+                {{ person | json }}
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <p>orderBy</p>
+            <pre ng-repeat="person in test.people | orderBy:'name'">
+                {{ person | json }}
+            </pre>
+        </div>
+    </body>
 </html>
