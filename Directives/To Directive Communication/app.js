@@ -33,7 +33,7 @@ function hello() {
     require: "welcome",
     // The last parameter, which is the required controller, does not have a required name convention.
     link: function(scope, element, attrs, welcomeCtrl) {
-      welcomeCtrl.sayHowdy();
+      welcomeCtrl.sayHello();
     }
   }
 }
