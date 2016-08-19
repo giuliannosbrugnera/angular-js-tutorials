@@ -1,13 +1,15 @@
 var app = angular.module('drinkApp', []);
 
-app.controller("AppCtrl", function($scope) {});
+app.controller("AppCtrl", function($scope) {
+    $scope.ctrlFlavor = "blackberry";
+});
 
 app.directive("drink", function() {
     return {
-        scope: {},
-        template: '<div>{{ flavor }}</div>',
-        link: function(scope, element, attrs) {
-            scope.flavor = attrs.flavor;
-        }
+        scope: {
+            // Extract an attribute by name, and assign it to the scope.
+            flavor: "@"
+        },
+        template: '<div>{{ flavor }}</div>'
     };
 });
