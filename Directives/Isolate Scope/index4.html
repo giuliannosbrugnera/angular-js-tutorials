@@ -3,12 +3,14 @@
     <head>
         <title>Directives - Isolate Scope "&amp;"</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="app3.js"></script>
+        <script src="app4.js"></script>
     </head>
     <body>
         <div ng-app="phoneApp">
             <div ng-controller="AppCtrl">
-                <div phone dial="callHome('called home!')"></div>
+                <div phone dial="callHome(message)"></div>
+                <div phone dial="callHome(message)"></div>
+                <div phone dial="callHome(message)"></div>
             </div>
         </div>
     </body>
