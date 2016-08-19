@@ -8,9 +8,14 @@
     </head>
     <body ng-app="app" ng-controller="TestCtrl as test">
         <button ng-click="test.showBoxOne = !test.showBoxOne">Toggle Box One</button>
-        
         <div class="box-one" ng-show="test.showBoxOne">
             Hello! I am <b>box one</b>.
+        </div>
+        <!-- ng-repeat animations -->
+        <button ng-click="test.people.push({name:'Steve Jobs'})">Add item to ng-repeat</button>
+        <button ng-click="test.people.pop()">Remove item from ng-repeat</button>
+        <div class="item" ng-repeat="person in test.people">
+            {{ person.name }}
         </div>
     </body>
 </html>
