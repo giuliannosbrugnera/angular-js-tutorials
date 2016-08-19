@@ -17,5 +17,11 @@
         <div class="item" ng-repeat="person in test.people">
             {{ person.name }}
         </div>
+        <!-- ng-class animations -->
+        <button ng-click="test.bigger = !test.bigger">Set bigger = {{ !test.bigger }}</button>
+        <button ng-click="test.lightTheme = !test.lightTheme">Set lightTheme = {{ !test.lightTheme }}</button>
+        <div class="box" ng-class="{ 'bigger': test.bigger, 'light-theme': test.lightTheme }">
+            This is just a box.
+        </div>
     </body>
 </html>

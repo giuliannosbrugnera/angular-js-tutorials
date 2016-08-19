@@ -12,6 +12,8 @@ function TestCtrl() {
   }, {
     name: "Matthew Greenster"
   }];
+  self.bigger = false;
+  self.lightTheme = false;
 }
 
 var app = angular.module('app', ['ngAnimate']);
