@@ -11,16 +11,22 @@ function country() {
 
 function state() {
   return {
-    restrict: "E"
+    restrict: "E",
+    controller: function() {
+      this.makeLaw = function(law) {
+        console.log("Law: " + law);
+      };
+    }
   };
 }
 
 function city() {
   return {
     restrict: "E",
-    require: "^country",
-    link: function(scope, element, attrs, countryCtrl) {
-      countryCtrl.makeAnnouncement("This city rocks");
+    require: ["^country", "^state"],
+    link: function(scope, element, attrs, ctrls) {
+      ctrls[0].makeAnnouncement("This city rocks");
+      ctrls[1].makeLaw("Jump higher");
     }
   };
 }
