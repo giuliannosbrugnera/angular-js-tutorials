@@ -7,5 +7,12 @@ function kid() {
     };
 }
 
+function ChoreCtrl($scope) {
+    $scope.logChore = function(chore) {
+        alert(chore + " is done!");
+    };
+}
+
 var app = angular.module('choreApp', []);
-app.directive("kid", kid);
+app.controller('ChoreCtrl', ChoreCtrl);
+app.directive('kid', kid);
