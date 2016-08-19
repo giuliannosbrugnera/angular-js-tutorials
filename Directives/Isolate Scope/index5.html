@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Directives - Isolate Scope Review</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="app5.js"></script>
+    </head>
+    <body>
+        <div ng-app="phoneApp">
+            <div ng-controller="AppController">
+                <phone number="555-1234" network="network" make-call="leaveVoicemail(number, message)"></phone>
+                <phone number="867-5309" network="network" make-call="leaveVoicemail(number, message)"></phone>
+                <phone number="911" network="network" make-call="leaveVoicemail(number, message)"></phone>
+            </div>
+        </div>
+    </body>
+</html>
