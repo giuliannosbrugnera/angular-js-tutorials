@@ -1,4 +1,5 @@
 function testService($http) {
+  // GET
   this.get = function() {
     // '$http' methods return Angular '$q' promises, which allows for clean code flow via promise chaining.
     return $http.get('http://test-routes.herokuapp.com/test/hello')
@@ -7,7 +8,13 @@ function testService($http) {
         return res.data.message;
       });
   }
+
+  // POST
+  this.upperCase = function(data) {
+    return $http.post('http://test-routes.herokuapp.com/test/uppercase', data);
+  }
 }
+
 
 
 function TestCtrl(testService) {
@@ -17,6 +24,15 @@ function TestCtrl(testService) {
     testService.get()
       .then(function(message) {
         self.message = message;
+      })
+  }
+
+  self.postData = function(message) {
+    testService.upperCase({
+        message: message
+      })
+      .success(function(body) {
+        self.sendMessage = body.message;
       })
   }
 }
