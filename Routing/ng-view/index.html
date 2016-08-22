@@ -5,8 +5,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </head>
-    <body ng-app="myApp">
+    <body ng-app="app">
         <!-- ng-view will allow us to set up config function and access the $routeProvider. -->
+        <!-- The ng-view tag will look to the route provider in order to figure out which -->
+        <!-- template needs to be rendered with which controller depending on what the current route is. -->
         <ng-view></ng-view>
     </body>
 </html>

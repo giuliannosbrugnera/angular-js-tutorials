@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["ngRoute"]);
 
 app.config(function($routeProvider) {
     // Configure a route.
@@ -9,4 +9,11 @@ app.config(function($routeProvider) {
         controller: "AppCtrl",
         controllerAs: "app"
     });
+});
+
+// Create a controller to wire up to the route.
+app.controller('AppCtrl', function() {
+    // Create a model on the scope with a message.
+    var self = this;
+    self.message = "The app routing is working!";
 });
