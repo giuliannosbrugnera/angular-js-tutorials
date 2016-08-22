@@ -1,5 +1,8 @@
+// An interceptor is simply a factory() service that returns an object with 4 properties that map to functions.
+// It's perfectly fine to include all or only a subset of the properties that are needed.
 function testInterceptor() {
   return {
+    // request: called before a request is sent, capable of mutating the request object.
     request: function(config) {
       return config;
     },
@@ -8,10 +11,12 @@ function testInterceptor() {
       return config;
     },
 
+    // response: called with an $http request succeeds, is passed the results object.
     response: function(res) {
       return res;
     },
 
+    // responseError: called if an $http method fails.
     responseError: function(res) {
       return res;
     }
