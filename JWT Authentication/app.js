@@ -4,6 +4,14 @@
     return {
       // Automatically attach Authorization header.
       request: function(config) {
+        var token = auth.getToken();
+        // Authenticating with a JWT involves attaching an Authorization header to each 
+        // request with a value consisting of the String "Bearer" and the JWT. This method
+        // relies on the use of SSL to prevent the token itself from being sniffed.
+        if (config.url.indexOf(API) === 0 && token) {
+          config.headers.Authorization = 'Bearer ' + token;
+        }
+
         return config;
       },
 
