@@ -8,9 +8,5 @@
   </head>
   <body ng-app="app">
     <div ng-view></div>
-    <!-- Angular ships with a script directive, which when passed text/ng-template as the text attribute, Angular will recognize -->
-    <!-- that it is a template meant to be used with our application and put any content between the script tags into $templateCache, -->
-    <!-- keyed by the id attribute. -->
-    <script type="text/ng-template" id="test.html">Hello {{ test.user.name }}!</script>
   </body>
 </html>
