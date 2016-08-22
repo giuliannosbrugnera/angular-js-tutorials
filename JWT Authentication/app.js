@@ -33,6 +33,18 @@
     self.getToken = function() {
       return $window.localStorage['jwtToken'];
     }
+
+    // Check for the existence of a valid token and return true or false respectively.
+    self.isAuthed = function() {
+      var token = self.getToken();
+      if (token) {
+        var params = self.parseJwt(token);
+        // Unix Time is in seconds while JavaScript Date.now() returns milliseconds, so a conversion is necessary.
+        return Math.round(new Date().getTime() / 1000) <= params.exp;
+      } else {
+        return false;
+      }
+    }
   }
 
   function userService($http, API, auth) {
