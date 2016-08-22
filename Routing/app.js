@@ -1,30 +1,23 @@
-var app = angular.module("app", ["ngRoute"]);
+var app = angular.module('app', []);
 
 app.config(function($routeProvider) {
-    $routeProvider.when("/", {
+    $routeProvider
+        .when('/', {
             templateUrl: "app.html",
             controller: "AppCtrl",
-            controllerAs: "app"
-        })
-        .when('/cookies/:cookieType', {
-            // The routeParams object is the same as the $routeParams used in the controller.
-            // 'path' is the string path the router received.
-            // 'search' is the key/value set of the query string parameters.
-            redirectTo: function(routeParams, path, search) {
-                console.log(routeParams);
-                console.log(path);
-                console.log(search);
-            // When the router sees the '/cookies' route, this will switch off to the '/sugar' route
-            // when the :cookieType route parameter is 'sugar'.
-                return "/" + routeParams.cookieType;
+            // The resolve property is a list of promises.
+            // Things that need to happen before the controller instantiates and the view loads.
+            resolve: {
+                app: function($q) {
+                    var defer = $q.defer();
+                    return defer.promise;
+                }
             }
         })
-        .when('/sugar', {
-            template: 'Sugar cookie'
-        });
-})
+});
 
-app.controller('AppCtrl', function() {
-    var self = this;
-    self.message = "The app routing is working!";
+app.controller("AppCtrl", function($scope) {
+    $scope.model = {
+        message: "I'm a great app!"
+    }
 });
