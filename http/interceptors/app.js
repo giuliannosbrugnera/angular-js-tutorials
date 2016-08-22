@@ -4,7 +4,9 @@ function testInterceptor() {
   return {
     // request: called before a request is sent, capable of mutating the request object.
     request: function(config) {
+      // Test the url of the request to see if it matches the URL we want.
       if (config.url.indexOf('http://test-routes.herokuapp.com') > -1) {
+        // Attach an extra header that contains (what would be) the CSRF token.
         config.headers['x-csrf-token'] = 'lalalalala';
       }
       return config;
