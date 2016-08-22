@@ -4,6 +4,9 @@ function testInterceptor() {
   return {
     // request: called before a request is sent, capable of mutating the request object.
     request: function(config) {
+      if (config.url.indexOf('http://test-routes.herokuapp.com') > -1) {
+        config.headers['x-csrf-token'] = 'lalalalala';
+      }
       return config;
     },
 
