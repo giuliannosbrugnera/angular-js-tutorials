@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>$templateCache</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
-        <script src="app.js"></script>
-    </head>
-    <body ng-app="app">
-        <div ng-view></div>
-    </body>
+  <head>
+    <title>$templateCache</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app">
+    <div ng-view></div>
+    <!-- Angular ships with a script directive, which when passed text/ng-template as the text attribute, Angular will recognize -->
+    <!-- that it is a template meant to be used with our application and put any content between the script tags into $templateCache, -->
+    <!-- keyed by the id attribute. -->
+    <script type="text/ng-template" id="test.html">Hello {{ test.user.name }}!</script>
+  </body>
 </html>
