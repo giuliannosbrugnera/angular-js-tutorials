@@ -17,7 +17,12 @@
   function authService($window) {
     var self = this;
 
-    // Add JWT methods here.
+    // Decoding the token.
+    self.parseJwt = function(token) {
+      var base64Url = token.split('.')[1];
+      var base64 = base64Url.replace('-', '+').replace('_', '/');
+      return JSON.parse($window.atob(base64));
+    }
   }
 
   function userService($http, API, auth) {
@@ -26,6 +31,7 @@
       return $http.get(API + '/auth/quote')
     }
 
+    // Getting a token.
     self.register = function(username, password) {
       return $http.post(API + '/auth/register', {
         username: username,
@@ -33,6 +39,7 @@
       })
     }
 
+    // Getting a token.
     self.login = function(username, password) {
       return $http.post(API + '/auth/login', {
         username: username,
