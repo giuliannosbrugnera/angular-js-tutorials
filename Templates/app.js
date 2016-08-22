@@ -1,9 +1,11 @@
 (function() {
 
-  function TestCtrl() {
+  function TestCtrl($templateCache) {
     this.user = {
       name: 'Blake'
     };
+
+    console.log($templateCache.get('test.html'));
   }
 
   angular.module('app', ['ngRoute'])
