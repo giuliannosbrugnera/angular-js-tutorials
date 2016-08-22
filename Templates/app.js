@@ -10,7 +10,7 @@
     .config(function($routeProvider) {
       $routeProvider.when('/', {
           controller: 'TestCtrl as test',
-          template: 'Hello {{ test.user.name }}!'
+          templateUrl: 'test.html'
         })
         .otherwise('/');
     })
