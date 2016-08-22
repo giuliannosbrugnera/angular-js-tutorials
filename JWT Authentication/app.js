@@ -23,6 +23,16 @@
       var base64 = base64Url.replace('-', '+').replace('_', '/');
       return JSON.parse($window.atob(base64));
     }
+
+    // Save the token to localStorage thereby logging the user in.
+    self.saveToken = function(token) {
+      $window.localStorage['jwtToken'] = token;
+    }
+
+    // Retrieve the token from localStorage.
+    self.getToken = function() {
+      return $window.localStorage['jwtToken'];
+    }
   }
 
   function userService($http, API, auth) {
