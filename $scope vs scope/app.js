@@ -5,8 +5,10 @@ function TestCtrl($scope) {
   console.log($scope);
 }
 
+// Now it is different. The directive uses an isolated scope.
 function testDirective() {
   return {
+    scope: {},
     link: function(scope) {
       console.log(scope)
     }
