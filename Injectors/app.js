@@ -6,6 +6,7 @@ app.factory("game", function() {
   };
 });
 
+// The injector is able to seek out what ‘game’ is being injected as, here a factory.
 angular.injector(["app"]).invoke(function(game) {
   alert(game.title);
 });
