@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <title>AngularJS - Digest</title>
+</head>
+<body>
+  <div ng-app="app" ng-controller="Ctrl">
+    <!-- Clicking the <button> will invoke $digest. ng-click, though not formally tied to anything, invokes $digest. -->
+    <button ng-click="">Click!</button>
+    <!-- Entering text in the <input> will also invoke $digest. -->
+    <!-- The model can be treated as the 'single-source-of-truth' in the application, and so whenever the model is  -->
+    <!-- modified (as is done here), $digest must be invoked to propagate and possible changes throughout the application or views. -->
+    <input ng-model="whatever" />
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
